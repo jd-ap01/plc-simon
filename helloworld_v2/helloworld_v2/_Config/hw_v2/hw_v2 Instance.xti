@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.22" ClassName="CTComPlcObjDef">
+	<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" XtvPath="hw_v2\hw_v2 Instance.xtv" TmcPath="hw_v2\hw_v2.tmc">
+		<Name>__FILENAME__</Name>
+		<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+		<Contexts>
+			<Context>
+				<Id>0</Id>
+				<Name>PlcTask</Name>
+				<ManualConfig>
+					<OTCID>#x02010040</OTCID>
+				</ManualConfig>
+				<Priority>21</Priority>
+				<CycleTime>10000000</CycleTime>
+			</Context>
+		</Contexts>
+		<TaskPouOids>
+			<TaskPouOid Prio="21" OTCID="#x08502001"/>
+		</TaskPouOids>
+	</Instance>
+	<Mappings>
+		<OwnerA>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 2 (EL1008)">
+				<Link VarA="PlcTask Inputs^MAIN.aBTN[1]" VarB="Channel 4^Input" Size="1"/>
+				<Link VarA="PlcTask Inputs^MAIN.aBTN[2]" VarB="Channel 2^Input" Size="1"/>
+				<Link VarA="PlcTask Inputs^MAIN.aBTN[3]" VarB="Channel 7^Input" Size="1"/>
+				<Link VarA="PlcTask Inputs^MAIN.aBTN[4]" VarB="Channel 5^Input" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 3 (EL2008)">
+				<Link VarA="PlcTask Outputs^MAIN.aLED[1]" VarB="Channel 4^Output" Size="1"/>
+				<Link VarA="PlcTask Outputs^MAIN.aLED[2]" VarB="Channel 2^Output" Size="1"/>
+				<Link VarA="PlcTask Outputs^MAIN.aLED[3]" VarB="Channel 7^Output" Size="1"/>
+				<Link VarA="PlcTask Outputs^MAIN.aLED[4]" VarB="Channel 5^Output" Size="1"/>
+				<Link VarA="PlcTask Outputs^MAIN.aLED[5]" VarB="Channel 1^Output" Size="1"/>
+				<Link VarA="PlcTask Outputs^MAIN.aLED[6]" VarB="Channel 3^Output" Size="1"/>
+			</OwnerB>
+		</OwnerA>
+	</Mappings>
+</TcSmItem>

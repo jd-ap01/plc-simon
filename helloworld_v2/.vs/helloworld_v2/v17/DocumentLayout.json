@@ -1,0 +1,197 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\AP-VM\\Documents\\TcXaeShell\\helloworld_v2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{61D6BF44-B163-4C1F-9FE5-A9BA4D19BCE7}|helloworld_v2\\hw_v2\\hw_v2.plcproj|C:\\Users\\AP-VM\\Documents\\TcXaeShell\\helloworld_v2\\helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
+      "RelativeMoniker": "D:0:0:{61D6BF44-B163-4C1F-9FE5-A9BA4D19BCE7}|helloworld_v2\\hw_v2\\hw_v2.plcproj|solutionrelative:helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61D6BF44-B163-4C1F-9FE5-A9BA4D19BCE7}|helloworld_v2\\hw_v2\\hw_v2.plcproj|C:\\Users\\AP-VM\\Documents\\TcXaeShell\\helloworld_v2\\helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@ButtonRelease||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
+      "RelativeMoniker": "D:0:0:{61D6BF44-B163-4C1F-9FE5-A9BA4D19BCE7}|helloworld_v2\\hw_v2\\hw_v2.plcproj|solutionrelative:helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@ButtonRelease||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61D6BF44-B163-4C1F-9FE5-A9BA4D19BCE7}|helloworld_v2\\hw_v2\\hw_v2.plcproj|C:\\Users\\AP-VM\\Documents\\TcXaeShell\\helloworld_v2\\helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@GetBP||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
+      "RelativeMoniker": "D:0:0:{61D6BF44-B163-4C1F-9FE5-A9BA4D19BCE7}|helloworld_v2\\hw_v2\\hw_v2.plcproj|solutionrelative:helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@GetBP||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61D6BF44-B163-4C1F-9FE5-A9BA4D19BCE7}|helloworld_v2\\hw_v2\\hw_v2.plcproj|C:\\Users\\AP-VM\\Documents\\TcXaeShell\\helloworld_v2\\helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@GetBR||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
+      "RelativeMoniker": "D:0:0:{61D6BF44-B163-4C1F-9FE5-A9BA4D19BCE7}|helloworld_v2\\hw_v2\\hw_v2.plcproj|solutionrelative:helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@GetBR||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61D6BF44-B163-4C1F-9FE5-A9BA4D19BCE7}|helloworld_v2\\hw_v2\\hw_v2.plcproj|C:\\Users\\AP-VM\\Documents\\TcXaeShell\\helloworld_v2\\helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@GetButton||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
+      "RelativeMoniker": "D:0:0:{61D6BF44-B163-4C1F-9FE5-A9BA4D19BCE7}|helloworld_v2\\hw_v2\\hw_v2.plcproj|solutionrelative:helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@GetButton||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61D6BF44-B163-4C1F-9FE5-A9BA4D19BCE7}|helloworld_v2\\hw_v2\\hw_v2.plcproj|C:\\Users\\AP-VM\\Documents\\TcXaeShell\\helloworld_v2\\helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@ButtonPress||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}",
+      "RelativeMoniker": "D:0:0:{61D6BF44-B163-4C1F-9FE5-A9BA4D19BCE7}|helloworld_v2\\hw_v2\\hw_v2.plcproj|solutionrelative:helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@ButtonPress||{CFF47BB1-5559-4BDE-A2AF-06B30BC64F6C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 2536,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MAIN",
+              "DocumentMoniker": "C:\\Users\\AP-VM\\Documents\\TcXaeShell\\helloworld_v2\\helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU",
+              "RelativeDocumentMoniker": "helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU",
+              "ToolTip": "MAIN [helloworld_v2.hw_v2]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-09-17T12:03:45.491Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MAIN.GetBR",
+              "DocumentMoniker": "C:\\Users\\AP-VM\\Documents\\TcXaeShell\\helloworld_v2\\helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@GetBR",
+              "RelativeDocumentMoniker": "helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@GetBR",
+              "ToolTip": "GetBR [helloworld_v2.hw_v2.MAIN]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-09-17T15:28:41.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MAIN.GetBP",
+              "DocumentMoniker": "C:\\Users\\AP-VM\\Documents\\TcXaeShell\\helloworld_v2\\helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@GetBP",
+              "RelativeDocumentMoniker": "helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@GetBP",
+              "ToolTip": "GetBP [helloworld_v2.hw_v2.MAIN]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-09-17T15:28:32.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MAIN.ButtonRelease",
+              "DocumentMoniker": "C:\\Users\\AP-VM\\Documents\\TcXaeShell\\helloworld_v2\\helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@ButtonRelease",
+              "RelativeDocumentMoniker": "helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@ButtonRelease",
+              "ToolTip": "ButtonRelease [helloworld_v2.hw_v2.MAIN]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-09-17T15:26:59.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MAIN.GetButton",
+              "DocumentMoniker": "C:\\Users\\AP-VM\\Documents\\TcXaeShell\\helloworld_v2\\helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@GetButton",
+              "RelativeDocumentMoniker": "helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@GetButton",
+              "ToolTip": "GetButton [helloworld_v2.hw_v2.MAIN]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-09-17T14:06:25.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:138:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{94c070b9-db0b-4415-9311-bac4eef266f5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MAIN.ButtonPress",
+              "DocumentMoniker": "C:\\Users\\AP-VM\\Documents\\TcXaeShell\\helloworld_v2\\helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@ButtonPress",
+              "RelativeDocumentMoniker": "helloworld_v2\\hw_v2\\POUs\\MAIN.TcPOU@ButtonPress",
+              "ToolTip": "ButtonPress [helloworld_v2.hw_v2.MAIN]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-09-16T14:45:15.659Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1844,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{06aaca20-35b4-45c6-a564-394bb9445f4d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{2db0a98a-c05d-41c7-99e6-b6d97d45af55}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

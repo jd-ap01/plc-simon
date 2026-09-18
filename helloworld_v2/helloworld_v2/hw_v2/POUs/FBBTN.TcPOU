@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <POU Name="FBBTN" Id="{40759bd4-0b0b-44b1-82ac-fd9964b597b6}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FBBTN
+VAR_INPUT
+	bOLD : BOOL;
+	bNEW : BOOL;
+END_VAR
+VAR_OUTPUT
+	bOUT : BOOL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bOLD = FALSE AND bNEW = TRUE THEN
+	bOUT := TRUE;
+ELSE
+	bOUT := FALSE;
+END_IF
+
+bOLD := bNEW;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

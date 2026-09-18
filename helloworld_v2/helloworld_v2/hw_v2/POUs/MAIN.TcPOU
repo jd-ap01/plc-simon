@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <POU Name="MAIN" Id="{038b36ae-e915-41b0-81ed-a65b40465791}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR CONSTANT
+	cSTEP_IDLE			: INT := 0;
+	cSTEP_PRESS			: INT := 1;
+	cSTEP_WAIT			: INT := 10;
+	cSTEP_MACHINE		: INT := 20;
+	cSTEP_USER			: INT := 30;
+	cSTEP_OUTCOME		: INT := 40;
+	cSTEP_WINNER		: INT := 50;
+	cMaxRound			: INT := 6;
+	
+	cGreenLED			: INT := 5;
+	cRedLED				: INT := 6;
+	cBTNtotal			: INT := 4;
+	cLEDtotal			: INT := 6;				
+END_VAR
+VAR
+	aBTN AT %I* : ARRAY[1..cBTNtotal] OF BOOL;
+	aLED AT %Q* : ARRAY[1..cLEDtotal] OF BOOL;
+	
+	aBTN_OLD : ARRAY[1..cLEDtotal] OF BOOL;
+	aBTN_NEW : ARRAY[1..cLEDtotal] OF BOOL;
+	
+	aMachine : ARRAY[1..cMaxRound] OF INT;
+	aUser : ARRAY[1..cMaxRound] OF INT;
+	
+	bStepChangeOS		: BOOL;
+	nStep				: DINT;
+	nStepOld			: DINT;
+	
+	nCurRound 			: INT;
+	fbRand 				: DRAND;
+	nSeed 				: INT := 100;
+	tonTimer 			: TON;
+	bTVar 				: BOOL;
+	tTimeout 			: TIME := T#2S;
+	tTOn 				: TIME := T#1S;
+	tTstb 				: TIME := T#2S;
+	nBtnPress 			: INT;
+	bOK 				: BOOL;
+	
+	idx 				: INT := 1;
+	cnt 				: INT;
+	nWinLED 			: INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[bStepChangeOS := nStep = nStepOld;
+nStepOld := nStep;
+
+tonTimer(IN := bTVar, PT := tTimeout);
+nSeed := nSeed + 1;
+
+FOR cnt := 1 TO 4 BY 1 DO
+	aBTN_OLD[cnt] := aBTN_NEW[cnt];
+	aBTN_NEW[cnt] := aBTN[cnt];
+	
+	IF aBTN[cnt] THEN
+		aLED[cnt] := TRUE;
+	ELSE
+		aLED[CNT] := FALSE;
+	END_IF
+END_FOR
+
+
+// State Machine
+CASE nStep OF
+	(*************************************************************************************)
+	cSTEP_IDLE:		// New game setup
+		
+	nCurRound := 1;
+	bOK := FALSE;
+	fbRand(Seed:=nSeed);
+	
+	IF idx <= cMaxRound THEN
+		aMachine[idx] := LREAL_TO_INT(fbRand.Num * 100.0) MOD 3 + 1;
+		idx := idx + 1;
+	ELSE
+		idx := 1;
+		nStep := cSTEP_WAIT;
+	END_IF
+	
+		
+	(*************************************************************************************)	
+	cSTEP_WAIT:		// Wait for user input to start
+	
+	IF ButtonRelease(bBTN_NEW := aBTN_NEW[1], bBTN_OLD := aBTN_OLD[1]) AND aBTN_NEW[2] THEN
+	 	bTVar := TRUE;
+		tTimeout := tTstb;
+		aLED[cGreenLED] := TRUE;
+		aLED[cRedLED] := TRUE;
+	END_IF	
+	
+	IF tonTimer.Q THEN
+		aLED[cGreenLED] := FALSE;
+		aLED[cRedLED] := FALSE;
+		bTVar:=FALSE;
+		nStep := cSTEP_MACHINE;
+	END_IF
+	
+	(*************************************************************************************)	
+	cSTEP_MACHINE:	// Show Pattern
+	
+	IF idx <= nCurRound THEN
+		IF NOT(tonTimer.Q) THEN
+			aLED[aMachine[idx]] := TRUE;
+			bTVar := TRUE;
+			tTimeout := tTOn;
+		ELSE
+			aLED[aMachine[idx]] := FALSE;
+			bTVar := FALSE;
+			idx := idx + 1;
+		END_IF
+	ELSE
+		nStep := cSTEP_USER;
+		idx := 1;
+	END_IF
+
+	(*************************************************************************************)		
+	cSTEP_USER:		// Wait user input
+	
+	IF idx <= nCurRound THEN
+		nBtnPress := GetBR();
+		IF NOT(nBtnPress = 0) THEN
+			aUser[idx] := nBtnPress;
+			IF aMachine[idx] = aUser[idx] THEN
+				bOK := TRUE;
+				idx := idx + 1;
+			ELSE
+				bOK := FALSE;
+				nStep := cSTEP_OUTCOME;
+				idx := 1;
+			END_IF
+		ELSE
+			// do nothing
+		END_IF
+	ELSE
+		nStep := cSTEP_OUTCOME;
+		idx := 1;
+	END_IF
+	
+	(*************************************************************************************)		
+	cSTEP_OUTCOME:	// Compare machine and user
+	
+	IF bOK  AND nCurRound < cMaxRound THEN
+		nStep := cSTEP_MACHINE;
+		nCurRound := nCurRound + 1;
+		idx := 1;
+	ELSE
+		nStep := cSTEP_WINNER;
+	END_IF
+
+	
+	(*************************************************************************************)		
+	cSTEP_WINNER:	// Finishes the game
+	
+	IF bOK THEN
+		nWinLED := cGreenLED;
+	ELSE
+		nWinLED := cRedLED;
+	END_IF
+			
+	IF NOT(tonTimer.Q) THEN
+		aLED[nWinLED] := TRUE;
+		bTVar := TRUE;
+		tTimeout := tTstb;
+	ELSE
+		aLED[nWinLED] := FALSE;
+		bTVar := FALSE;
+		nStep := cSTEP_IDLE;
+	END_IF
+	
+END_CASE
+]]></ST>
+    </Implementation>
+    <Method Name="ButtonPress" Id="{133444a2-8db9-4dda-b416-4c6fad85d751}">
+      <Declaration><![CDATA[METHOD PRIVATE ButtonPress : BOOL
+VAR_INPUT
+	bBTN_NEW : BOOL;
+	bBTN_OLD : BOOL;
+END_VAR
+
+VAR_INST
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF bBTN_OLD = FALSE AND bBTN_NEW = TRUE THEN
+	ButtonPress := TRUE;
+ELSE
+	ButtonPress := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ButtonRelease" Id="{2cf64186-8a67-45de-ba7c-2f9bf5b1ba86}">
+      <Declaration><![CDATA[METHOD ButtonRelease : BOOL
+VAR_INPUT
+	bBTN_NEW : BOOL;
+	bBTN_OLD : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF bBTN_OLD = TRUE AND bBTN_NEW = FALSE THEN
+	ButtonRelease := TRUE;
+ELSE
+	ButtonRelease := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="GetBP" Id="{99a077ac-dfc0-4eae-b3e9-cd2e6ccc5843}">
+      <Declaration><![CDATA[METHOD GetBP : INT
+VAR_INPUT
+END_VAR
+VAR
+	loop : int;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[FOR loop := 1 TO 4 BY 1 DO
+	IF ButtonPress(bBTN_NEW:=aBTN_NEW[loop], bBTN_OLD:=aBTN_OLD[loop]) THEN
+		GetBP := loop;
+		RETURN;
+	ELSE
+		GetBP := 0;
+	END_IF
+END_FOR]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="GetBR" Id="{2e54f33f-0fbe-4398-a039-c826c2d46e8e}">
+      <Declaration><![CDATA[METHOD GetBR : INT
+VAR_INPUT
+END_VAR
+VAR
+	loop : INT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[FOR loop := 1 TO 4 BY 1 DO
+	IF ButtonRelease(bBTN_NEW := aBTN_NEW[loop], bBTN_OLD := aBTN_OLD[loop]) THEN
+		GetBR := loop;
+		RETURN;
+	ELSE
+		GetBR := 0;
+	END_IF
+END_FOR]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="GetButton" Id="{55396183-6e24-4b2e-bd12-f961531019a9}">
+      <Declaration><![CDATA[METHOD GetButton : INT
+VAR_INPUT
+END_VAR
+VAR
+	loop : INT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[FOR loop := 1 TO 4 BY 1 DO
+	IF ButtonPress(bBTN_NEW := aBTN_NEW[loop], bBTN_OLD :=aBTN_OLD[loop]) THEN
+		GetButton := loop;
+	ELSE
+		GetButton := 0;
+	END_IF
+END_FOR]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
